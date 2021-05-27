@@ -231,6 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpSpeed: 5
+  jumpDelay: 0
   moveAcceleration: 1
   moveTopSpeed: 6
   isAutoRunning: 1

@@ -7,13 +7,17 @@ using UnityEngine;
 
 /// <summary>
 /// modified version of the gamekit
-/// handles player movement and input for movement
+/// handles player movement and movement input delay 
 /// </summary>
 public class Movement : MonoBehaviour
 {
 
     [SerializeField] public float moveSpeed = 5f;
     [SerializeField] public float jumpSpeed = 5f;
+    /// <summary>
+    /// seconds player character waits before actually jumping 
+    /// </summary>
+    public float jumpDelay = 0;
     [SerializeField] public float moveAcceleration;
     [SerializeField] public float moveTopSpeed;
     
@@ -41,6 +45,7 @@ public class Movement : MonoBehaviour
     }
 
     #endregion
+    
     #region  Unity Callbacks
     void Start()
     {
@@ -53,7 +58,7 @@ public class Movement : MonoBehaviour
     {
         ProcessInputs();
         HandleAcceleration();
-        Jump();
+        DetectJumpInput();
     }
 
     private void FixedUpdate()
@@ -99,7 +104,7 @@ public class Movement : MonoBehaviour
         moveSpeed = Mathf.Clamp(moveSpeed, moveMinSpeed, moveTopSpeed);
     }
 
-    private void Jump()
+    private void DetectJumpInput()
     {
         if (!isActiveBool) { return; }
 
@@ -110,9 +115,25 @@ public class Movement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);
-            myRigidBody.velocity += jumpVelocityToAdd;
+            if(jumpDelay > 0)
+                print("JUMP DETECTED. Jumping in " + jumpDelay + "...");
+            Invoke(nameof(Jump), jumpDelay);
+
         }
+    }
+
+    /// <summary>
+    /// makes the player jump if they're touching ground 
+    /// </summary>
+    private void Jump()
+    {           
+        if (!myRigidBody.IsTouchingLayers(LayerMask.GetMask("Foreground")))
+        {
+            return;
+        }
+        
+        Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);
+        myRigidBody.velocity += jumpVelocityToAdd;
     }
 
     
