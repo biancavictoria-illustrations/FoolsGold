@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpSpeed = 5f;
+    [SerializeField] public bool isAutoRunning = false;
     [SerializeField] public bool isActiveBool = false;
     [SerializeField] Rigidbody2D myRigidBody;
 
@@ -44,7 +45,17 @@ public class Movement : MonoBehaviour
     {
         if (!isActiveBool) { return; }
 
-        myRigidBody.velocity = new Vector2(moveDirection.x * moveSpeed, myRigidBody.velocity.y);
+        if (isAutoRunning)
+        {
+            print(moveSpeed);
+            myRigidBody.velocity = new Vector2(moveSpeed, myRigidBody.velocity.y);
+        }
+        else
+        {
+
+            myRigidBody.velocity = new Vector2(moveDirection.x * moveSpeed, myRigidBody.velocity.y);
+        }
+
     }
 
     private void Jump()
