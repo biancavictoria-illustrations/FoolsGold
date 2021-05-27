@@ -5,10 +5,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// modified version of the gamekit
+/// handles player movement and input for movement
+/// </summary>
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float jumpSpeed = 5f;
+
+    [SerializeField] public float moveSpeed = 5f;
+    [SerializeField] public float jumpSpeed = 5f;
+    [SerializeField] public float moveAcceleration;
+    [SerializeField] public float moveTopSpeed;
+    
+    /// <summary>
+    /// assuming that minspeed is starting speed for now
+    /// </summary>
+    private float moveMinSpeed; 
+    
     [SerializeField] public bool isAutoRunning = false;
     [SerializeField] public bool isActiveBool = false;
     [SerializeField] Rigidbody2D myRigidBody;
@@ -16,14 +29,30 @@ public class Movement : MonoBehaviour
     private Vector2 moveDirection;
     private SpriteRenderer mySpriteRenderer;
 
+
+    #region  Public Functions
+
+    /// <summary>
+    /// instantly sets the player's speed to the slowest value. 
+    /// </summary>
+    public void SlowToSlowestSpeed()
+    {
+        moveSpeed = moveMinSpeed; 
+    }
+
+    #endregion
+    #region  Unity Callbacks
     void Start()
     {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
+
+        moveMinSpeed = moveSpeed; 
     }
 
     void Update()
     {
         ProcessInputs();
+        HandleAcceleration();
         Jump();
     }
 
@@ -31,7 +60,11 @@ public class Movement : MonoBehaviour
     {
         playerMovement();
     }
+    
 
+    #endregion
+    
+    
     private void ProcessInputs()
     {
         if (!isActiveBool) { return; }
@@ -47,7 +80,6 @@ public class Movement : MonoBehaviour
 
         if (isAutoRunning)
         {
-            print(moveSpeed);
             myRigidBody.velocity = new Vector2(moveSpeed, myRigidBody.velocity.y);
         }
         else
@@ -58,11 +90,20 @@ public class Movement : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// adds moveAcceleration to moveSpeed every second until topSpeed is reached
+    /// </summary>
+    private void HandleAcceleration()
+    {
+        moveSpeed += moveAcceleration * Time.deltaTime; 
+        moveSpeed = Mathf.Clamp(moveSpeed, moveMinSpeed, moveTopSpeed);
+    }
+
     private void Jump()
     {
         if (!isActiveBool) { return; }
 
-        if (!myRigidBody.IsTouchingLayers(LayerMask.GetMask("Foreground", "Block")))
+        if (!myRigidBody.IsTouchingLayers(LayerMask.GetMask("Foreground")))
         {
             return;
         }
@@ -74,5 +115,5 @@ public class Movement : MonoBehaviour
         }
     }
 
-
+    
 }

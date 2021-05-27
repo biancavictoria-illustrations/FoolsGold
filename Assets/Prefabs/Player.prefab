@@ -231,6 +231,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpSpeed: 5
+  moveAcceleration: 1
+  moveTopSpeed: 6
   isAutoRunning: 1
   isActiveBool: 1
   myRigidBody: {fileID: 7249500995458224423}
