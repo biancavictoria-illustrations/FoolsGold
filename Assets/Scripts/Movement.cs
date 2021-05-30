@@ -101,7 +101,7 @@ public class Movement : MonoBehaviour
     private void HandleAcceleration()
     {
         moveSpeed += moveAcceleration * Time.deltaTime; 
-        moveSpeed = Mathf.Clamp(moveSpeed, moveMinSpeed, moveTopSpeed);
+    //    moveSpeed = Mathf.Clamp(moveSpeed, moveMinSpeed, moveTopSpeed);
     }
 
     private void DetectJumpInput()
