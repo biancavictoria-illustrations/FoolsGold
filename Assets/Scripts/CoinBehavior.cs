@@ -27,8 +27,8 @@ public class CoinBehavior : MonoBehaviour
         {
             //  gravScale += 9.8f;
             //  player.GetComponent<Rigidbody2D>().gravityScale += 1.2f;
-            player.GetComponent<Movement>().moveSpeed -= 0.05f;
-            player.GetComponent<Movement>().jumpSpeed -= 0.05f;
+            player.GetComponent<Movement>().moveSpeed -= 0.1f;
+            player.GetComponent<Movement>().jumpSpeed -= 0.1f;
             // Debug.Log("Gravity scale: " + player.GetComponent<Rigidbody2D>().gravityScale);
             Destroy(this.gameObject);
         }
