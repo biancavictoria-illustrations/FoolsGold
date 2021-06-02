@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 724592921}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -83,6 +84,19 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &724592921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d5ef3e4f0868ad4eb67f3c3b78e6cf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clampedPos: 2
 --- !u!1 &7249500993914342818
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,13 +246,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpSpeed: 9
-  groundCheckLength: 0.5
   jumpDelay: 0
   moveAcceleration: 0
+  moveMinSpeed: 0
+  jumpMinSpeed: 0
   moveTopSpeed: 6
+  jumpTopSpeed: 10
   isAutoRunning: 1
   isActiveBool: 1
   myRigidBody: {fileID: 7249500995458224423}
+  groundCheckLength: 0.5
 --- !u!114 &973395701890297193
 MonoBehaviour:
   m_ObjectHideFlags: 0

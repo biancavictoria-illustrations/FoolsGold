@@ -3,6 +3,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 /// <summary>
@@ -12,28 +13,34 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
 
+ 
+    
+    [Header("Movement Values")]
     [SerializeField] public float moveSpeed = 5f;
     [SerializeField] public float jumpSpeed = 5f;
-    /// <summary>
-    /// The length of the groundcheck raycast the extends down from the player position. 
-    /// </summary>
-    public float groundCheckLength; 
     /// <summary>
     /// seconds player character waits before actually jumping 
     /// </summary>
     public float jumpDelay = 0;
     [SerializeField] public float moveAcceleration;
-    [SerializeField] public float moveTopSpeed;
+
+
+    [Header("Movement Clamping")] 
+    public float moveMinSpeed;
+    public float jumpMinSpeed;
+    public float moveTopSpeed;
+    public float jumpTopSpeed; 
     
-    /// <summary>
-    /// assuming that minspeed is starting speed for now
-    /// </summary>
-    private float moveMinSpeed; 
-    
+    [Header("Misc")]
     [SerializeField] public bool isAutoRunning = false;
     [SerializeField] public bool isActiveBool = false;
     [SerializeField] Rigidbody2D myRigidBody;
-
+    /// <summary>
+    /// The length of the groundcheck raycast the extends down from the player position. 
+    /// </summary>
+    public float groundCheckLength;
+    
+    
     private Vector2 moveDirection;
     private SpriteRenderer mySpriteRenderer;
 
@@ -54,8 +61,6 @@ public class Movement : MonoBehaviour
     void Start()
     {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
-
-        moveMinSpeed = moveSpeed; 
     }
 
     void Update()
@@ -63,6 +68,10 @@ public class Movement : MonoBehaviour
         ProcessInputs();
         HandleAcceleration();
         DetectJumpInput();
+        
+        //clamp move and jump speeds 
+        moveSpeed = Mathf.Clamp(moveSpeed, moveMinSpeed, moveTopSpeed);
+        jumpSpeed = Mathf.Clamp(jumpSpeed, jumpMinSpeed, jumpTopSpeed);
     }
 
     private void FixedUpdate()
@@ -79,7 +88,7 @@ public class Movement : MonoBehaviour
         if (!isActiveBool) { return; }
 
         float moveX = Input.GetAxisRaw("Horizontal");
-
+        
         moveDirection = new Vector2(moveX, myRigidBody.velocity.y);
     }
 
