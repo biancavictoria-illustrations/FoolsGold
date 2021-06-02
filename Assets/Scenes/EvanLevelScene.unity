@@ -3040,23 +3040,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &1337758252 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6268357241024461256, guid: 142f322694689f142b83e4dd0dcf7fd1, type: 3}
-  m_PrefabInstance: {fileID: 7971510800058876995}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1337758253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1337758252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3aedaa3113b08304ab480cefc1ecfacb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2055265930
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3110,34 +3093,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7249500993914342819, guid: bb297833b2aac61478fbe2c9e7037af0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7249500995458224422, guid: bb297833b2aac61478fbe2c9e7037af0, type: 3}
-      propertyPath: m_Size.x
-      value: 0.9486847
-      objectReference: {fileID: 0}
-    - target: {fileID: 7249500995458224422, guid: bb297833b2aac61478fbe2c9e7037af0, type: 3}
-      propertyPath: m_Size.y
-      value: 0.94867796
-      objectReference: {fileID: 0}
-    - target: {fileID: 7249500995458224422, guid: bb297833b2aac61478fbe2c9e7037af0, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 2906dd0a16052b64b9ca745fb97a6189, type: 2}
-    - target: {fileID: 7249500995458224422, guid: bb297833b2aac61478fbe2c9e7037af0, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.002632141
-      objectReference: {fileID: 0}
-    - target: {fileID: 7249500995458224422, guid: bb297833b2aac61478fbe2c9e7037af0, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.002629608
-      objectReference: {fileID: 0}
-    - target: {fileID: 7249500995458224424, guid: bb297833b2aac61478fbe2c9e7037af0, type: 3}
-      propertyPath: jumpSpeed
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7249500995458224424, guid: bb297833b2aac61478fbe2c9e7037af0, type: 3}
-      propertyPath: moveAcceleration
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
