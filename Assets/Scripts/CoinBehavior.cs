@@ -30,6 +30,10 @@ public class CoinBehavior : MonoBehaviour
             player.GetComponent<Movement>().moveSpeed -= 0.1f;
             player.GetComponent<Movement>().jumpSpeed -= 0.1f;
             // Debug.Log("Gravity scale: " + player.GetComponent<Rigidbody2D>().gravityScale);
+            
+            //increment player coin value
+            player.GetComponent<PlayerStats>().Coins++;
+            
             Destroy(this.gameObject);
         }
 
