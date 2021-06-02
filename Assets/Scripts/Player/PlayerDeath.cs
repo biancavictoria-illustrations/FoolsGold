@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;    
 /// <summary>
 /// detects player death.
 /// coupled with playerstats
@@ -15,6 +15,8 @@ public class PlayerDeath : MonoBehaviour
     /// </summary>
     public float DeathY;
 
+    public UnityEvent OnDeath; 
+    
     private PlayerStats _playerStats; 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +29,10 @@ public class PlayerDeath : MonoBehaviour
     {
         if (transform.position.y < DeathY && _playerStats.alive)
         {
+            OnDeath.Invoke();
             _playerStats.alive = false; 
             print("Player has died. Press R to reset. //placeholder");
+            
         }
     }
 }
