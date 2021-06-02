@@ -15,6 +15,10 @@ public class Movement : MonoBehaviour
     [SerializeField] public float moveSpeed = 5f;
     [SerializeField] public float jumpSpeed = 5f;
     /// <summary>
+    /// The length of the groundcheck raycast the extends down from the player position. 
+    /// </summary>
+    public float groundCheckLength; 
+    /// <summary>
     /// seconds player character waits before actually jumping 
     /// </summary>
     public float jumpDelay = 0;
@@ -108,7 +112,10 @@ public class Movement : MonoBehaviour
     {
         if (!isActiveBool) { return; }
 
-        if (!myRigidBody.IsTouchingLayers(LayerMask.GetMask("Foreground")))
+        //draw raycast for debugging
+        Debug.DrawRay(transform.position, Vector3.down * groundCheckLength);
+        
+        if (!isGrounded())
         {
             return;
         }
@@ -126,14 +133,21 @@ public class Movement : MonoBehaviour
     /// makes the player jump if they're touching ground 
     /// </summary>
     private void Jump()
-    {           
-        if (!myRigidBody.IsTouchingLayers(LayerMask.GetMask("Foreground")))
+    {
+        //check ground again in case there is a jump delay 
+        if (!isGrounded())
         {
             return;
         }
         
         Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);
         myRigidBody.velocity += jumpVelocityToAdd;
+    }
+
+    bool isGrounded()
+    {
+        return Physics2D.Raycast(transform.position, Vector3.down, groundCheckLength,
+            LayerMask.GetMask("Foreground"));
     }
 
     

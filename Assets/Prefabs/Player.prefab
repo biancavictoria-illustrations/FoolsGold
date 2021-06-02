@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 7249500995458224424}
   - component: {fileID: 973395701890297193}
   - component: {fileID: 73587157}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -232,6 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpSpeed: 9
+  groundCheckLength: 0.5
   jumpDelay: 0
   moveAcceleration: 0
   moveTopSpeed: 6
@@ -250,8 +251,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634bba4aa48409c4a9f1cc15bad8fc65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: 0
-  alive: 1
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCoinsChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &73587157
 MonoBehaviour:
   m_ObjectHideFlags: 0
