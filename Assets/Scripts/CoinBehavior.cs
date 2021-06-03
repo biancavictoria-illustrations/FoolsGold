@@ -11,7 +11,6 @@ public class CoinBehavior : MonoBehaviour
     void Start()
     {
         //gravScale = player.GetComponent<Rigidbody2D>().gravityScale;
-        Debug.Log("Gravity scale: " + player.GetComponent<Rigidbody2D>().gravityScale);
     }
 
     // Update is called once per frame
