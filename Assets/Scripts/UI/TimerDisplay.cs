@@ -24,12 +24,12 @@ public class TimerDisplay : MonoBehaviour
         {
             if (time > 0) {
                 time -= Time.deltaTime;
-                timerText.text = "Time: " + Mathf.FloorToInt(time % 60f).ToString();
+                timerText.text = "Time: " + Mathf.FloorToInt(time % 70f).ToString();
             }
             else
             {
                 time = 0;
-                timerText.text = "Time: " + Mathf.FloorToInt(time % 60f).ToString();
+                timerText.text = "Time: " + Mathf.FloorToInt(time % 70f).ToString();
                 timerOn = false;
             }
         }

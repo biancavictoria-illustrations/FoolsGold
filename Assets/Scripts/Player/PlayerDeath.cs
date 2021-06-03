@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- 
+using UnityEngine.SceneManagement;
+
 /// <summary>
 /// detects player death.
 /// coupled with playerstats
@@ -33,8 +34,9 @@ public class PlayerDeath : MonoBehaviour
         timer -= Time.deltaTime;
         if (transform.position.y < DeathY && _playerStats.Alive || timer <= 0f)
         {
-            _playerStats.Alive = false; 
-            print("Player has died. Press R to reset. //placeholder");
+            _playerStats.Alive = false;
+            SceneManager.LoadScene("DeadScene");
+            //print("Player has died. Press R to reset. //placeholder");
             
         }
     }
