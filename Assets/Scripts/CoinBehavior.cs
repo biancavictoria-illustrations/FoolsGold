@@ -32,6 +32,7 @@ public class CoinBehavior : MonoBehaviour
             
             //increment player coin value
             player.GetComponent<PlayerStats>().Coins++;
+            player.GetComponent<Animator>().SetInteger("CoinCount", player.GetComponent<PlayerStats>().Coins);
             
             Destroy(this.gameObject);
         }

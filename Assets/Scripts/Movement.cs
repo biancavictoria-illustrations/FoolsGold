@@ -43,6 +43,7 @@ public class Movement : MonoBehaviour
     
     private Vector2 moveDirection;
     private SpriteRenderer mySpriteRenderer;
+    public Animator animator;
 
 
     #region  Public Functions
@@ -81,8 +82,8 @@ public class Movement : MonoBehaviour
     
 
     #endregion
-    
-    
+
+
     private void ProcessInputs()
     {
         if (!isActiveBool) { return; }
@@ -99,10 +100,10 @@ public class Movement : MonoBehaviour
         if (isAutoRunning)
         {
             myRigidBody.velocity = new Vector2(moveSpeed, myRigidBody.velocity.y);
+        
         }
         else
         {
-
             myRigidBody.velocity = new Vector2(moveDirection.x * moveSpeed, myRigidBody.velocity.y);
         }
 
@@ -123,10 +124,28 @@ public class Movement : MonoBehaviour
 
         //draw raycast for debugging
         Debug.DrawRay(transform.position, Vector3.down * groundCheckLength);
-        
+
         if (!isGrounded())
         {
+            //print("Not grounded");
+            if (GetComponent<Rigidbody2D>().velocity.y > 0)
+            {
+                animator.SetBool("Jumping", true);
+                animator.SetBool("Landing", false);
+            }
+            else { 
+                animator.SetBool("Jumping", false);
+                animator.SetBool("Landing", true);
+            }
             return;
+        }
+
+        if (isGrounded())
+        {
+            print("Grounded");
+            animator.SetBool("Jumping", false);
+            animator.SetBool("Landing", false);
+
         }
 
         if (Input.GetButtonDown("Jump"))
@@ -151,10 +170,11 @@ public class Movement : MonoBehaviour
         
         Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);
         myRigidBody.velocity += jumpVelocityToAdd;
+        //print(myRigidBody.velocity);
     }
 
     bool isGrounded()
-    {
+    {  
         return Physics2D.Raycast(transform.position, Vector3.down, groundCheckLength,
             LayerMask.GetMask("Foreground"));
     }
