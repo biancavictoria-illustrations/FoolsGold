@@ -14,6 +14,8 @@ public class PlayerDeath : MonoBehaviour
     /// The maximum Y to trigger a death. 
     /// </summary>
     public float DeathY;
+    public TimerDisplay timerDisplay;
+    float timer;
 
 
     
@@ -21,13 +23,15 @@ public class PlayerDeath : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _playerStats = GetComponent<PlayerStats>(); 
+        _playerStats = GetComponent<PlayerStats>();
+        timer = timerDisplay.GetComponent<TimerDisplay>().time;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y < DeathY && _playerStats.Alive)
+        timer -= Time.deltaTime;
+        if (transform.position.y < DeathY && _playerStats.Alive || timer <= 0f)
         {
             _playerStats.Alive = false; 
             print("Player has died. Press R to reset. //placeholder");

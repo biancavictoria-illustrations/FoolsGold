@@ -6,7 +6,7 @@ using TMPro;
 public class TimerDisplay : MonoBehaviour
 {
 
-    private float time = 60;
+    public float time = 60;
     bool timerOn;
     private TextMeshProUGUI timerText;
 
@@ -29,6 +29,7 @@ public class TimerDisplay : MonoBehaviour
             else
             {
                 time = 0;
+                timerText.text = "Time: " + Mathf.FloorToInt(time % 60f).ToString();
                 timerOn = false;
             }
         }
