@@ -11,7 +11,7 @@ public class SceneTransition : MonoBehaviour
         if (collision.tag == "Player")
         {
             Debug.Log("yey");
-            SceneManager.LoadScene("LevelEnd");
+            SceneManager.LoadScene("EndScene");
         }
     }
 }
