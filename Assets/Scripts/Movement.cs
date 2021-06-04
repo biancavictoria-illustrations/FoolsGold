@@ -128,7 +128,7 @@ public class Movement : MonoBehaviour
         if (!isGrounded())
         {
             //print("Not grounded");
-            if (GetComponent<Rigidbody2D>().velocity.y > 0)
+            if (GetComponent<Rigidbody2D>().velocity.y > 0.001)
             {
                 animator.SetBool("Jumping", true);
                 animator.SetBool("Landing", false);
