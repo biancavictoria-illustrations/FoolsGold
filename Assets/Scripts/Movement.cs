@@ -44,6 +44,7 @@ public class Movement : MonoBehaviour
     private Vector2 moveDirection;
     private SpriteRenderer mySpriteRenderer;
     public Animator animator;
+    public AudioSource source;
 
 
     #region  Public Functions
@@ -153,6 +154,7 @@ public class Movement : MonoBehaviour
             if(jumpDelay > 0)
                 print("JUMP DETECTED. Jumping in " + jumpDelay + "...");
             Invoke(nameof(Jump), jumpDelay);
+            source.Play();
 
         }
     }
