@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6268357241024461256
+--- !u!1 &286148688414811730
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4123644981214379119}
-  - component: {fileID: 1337758253}
+  - component: {fileID: 286148688414811731}
+  - component: {fileID: 286148688414811728}
+  - component: {fileID: 286148688414811729}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -17,29 +18,42 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4123644981214379119
+--- !u!4 &286148688414811731
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6268357241024461256}
+  m_GameObject: {fileID: 286148688414811730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.385834, y: 7.2484827, z: -134.4147}
+  m_LocalPosition: {x: 6.5294566, y: 1.9707892, z: -1757.5624}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1337758253
+--- !u!114 &286148688414811728
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6268357241024461256}
+  m_GameObject: {fileID: 286148688414811730}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3aedaa3113b08304ab480cefc1ecfacb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &286148688414811729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286148688414811730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0b721e83a8f1b4d91ba154e5f038c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pausedDisplay: {fileID: 0}
