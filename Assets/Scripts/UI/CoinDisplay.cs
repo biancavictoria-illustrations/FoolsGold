@@ -26,6 +26,6 @@ public class CoinDisplay : MonoBehaviour
     // Update is called once per frame
     void UpdateCoinDisplay()
     {
-        coinText.text = templateText.Replace("#", ps.Coins.ToString());
+        coinText.text = templateText.Replace("0", ps.Coins.ToString());
     }
 }
