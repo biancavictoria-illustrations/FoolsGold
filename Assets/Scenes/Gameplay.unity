@@ -2637,7 +2637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8851092522961215082, guid: 151c0dee5b9381a4c8bf30ad3d52d6ba, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8851092522961215082, guid: 151c0dee5b9381a4c8bf30ad3d52d6ba, type: 3}
       propertyPath: m_AnchorMin.x
@@ -2645,7 +2645,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8851092522961215082, guid: 151c0dee5b9381a4c8bf30ad3d52d6ba, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8851092522961215082, guid: 151c0dee5b9381a4c8bf30ad3d52d6ba, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2689,7 +2689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8851092522961215082, guid: 151c0dee5b9381a4c8bf30ad3d52d6ba, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 225
       objectReference: {fileID: 0}
     - target: {fileID: 8851092522961215082, guid: 151c0dee5b9381a4c8bf30ad3d52d6ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -17638,9 +17638,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: aa5ed2b5be6283c4180ebbf42fe3075c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5d7bed2f7c44cf34aa04b13c78beb577, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.063
+  m_Volume: 0.212
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -18172,7 +18172,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -23.60001, y: -22.10001}
+  m_AnchoredPosition: {x: -23.600098, y: -22.099976}
   m_SizeDelta: {x: 30.245605, y: 12.508499}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1500665829
@@ -23285,7 +23285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8851092522961215082, guid: 151c0dee5b9381a4c8bf30ad3d52d6ba, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8851092522961215082, guid: 151c0dee5b9381a4c8bf30ad3d52d6ba, type: 3}
       propertyPath: m_AnchorMin.x
@@ -23293,7 +23293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8851092522961215082, guid: 151c0dee5b9381a4c8bf30ad3d52d6ba, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8851092522961215082, guid: 151c0dee5b9381a4c8bf30ad3d52d6ba, type: 3}
       propertyPath: m_SizeDelta.x
@@ -23337,7 +23337,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8851092522961215082, guid: 151c0dee5b9381a4c8bf30ad3d52d6ba, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 225
       objectReference: {fileID: 0}
     - target: {fileID: 8851092522961215082, guid: 151c0dee5b9381a4c8bf30ad3d52d6ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
